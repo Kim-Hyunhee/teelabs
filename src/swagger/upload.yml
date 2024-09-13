@@ -1,0 +1,40 @@
+paths:
+  /upload:
+    post:
+      tags:
+        - images
+      summary: 상품 이미지 등록
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        "200":
+          description: success
+
+  /upload/fbx:
+    post:
+      tags:
+        - images
+      summary: 상품 3d 등록
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        "200":
+          description: success

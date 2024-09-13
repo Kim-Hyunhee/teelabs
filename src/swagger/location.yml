@@ -1,0 +1,23 @@
+paths:
+  /locations:
+    get:
+      tags:
+        - location
+      summary: 장소 목록
+      responses:
+        "200":
+          description: success
+
+  /locations/{id}:
+    get:
+      tags:
+        - location
+      summary: 장소 상세보기
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+      responses:
+        "200":
+          description: success

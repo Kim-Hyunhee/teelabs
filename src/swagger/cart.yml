@@ -1,0 +1,48 @@
+paths:
+  /cart:
+    post:
+      tags:
+        - cart
+      summary: 장바구니 추가
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                productId:
+                  type: number
+      responses:
+        "200":
+          description: success
+
+    get:
+      tags:
+        - cart
+      summary: 장바구니 조회
+      parameters:
+        - in: query
+          name: categoryId
+          type: integer
+          required: true
+      responses:
+        "200":
+          description: success
+
+    delete:
+      tags:
+        - cart
+      summary: 장바구니 삭제
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                productIds:
+                  type: array
+                  items:
+                    type: integer
+      responses:
+        "200":
+          description: success

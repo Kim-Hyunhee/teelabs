@@ -1,0 +1,37 @@
+paths:
+  /categories:
+    get:
+      tags:
+        - category
+      summary: 카테고리 목록
+      responses:
+        "200":
+          description: success
+
+  /categories/{id}:
+    get:
+      tags:
+        - category
+      summary: 카테고리
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+      responses:
+        "200":
+          description: success
+
+  /categories/{id}/products:
+    get:
+      tags:
+        - category
+      summary: 카테고리 목록
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+      responses:
+        "200":
+          description: success

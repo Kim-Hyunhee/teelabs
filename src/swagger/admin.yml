@@ -1,0 +1,38 @@
+paths:
+  /admin/log-in:
+    post:
+      tags:
+        - admin
+      summary: 로그인
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                user_name:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: admin login success
+
+  /admin/password:
+    patch:
+      tags:
+        - admin
+      summary: 비밀번호 변경
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                currentPassword:
+                  type: string
+                newPassword:
+                  type: string
+      responses:
+        "200":
+          description: admin patched password success

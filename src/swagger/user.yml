@@ -1,0 +1,58 @@
+paths:
+  /users/log-in:
+    post:
+      tags:
+        - users
+      summary: 로그인
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                id:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: user login success
+
+  /users:
+    get:
+      tags:
+        - users
+      summary: 사용자 정보 조회
+      parameters:
+        - in: query
+          name: query
+          type: string
+        - in: query
+          name: page
+          type: integer
+      responses:
+        "200":
+          description: users infomation
+
+  /users/{id}:
+    get:
+      tags:
+        - users
+      summary: 사용자 정보 상세 조회
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+      responses:
+        "200":
+          description: users infomation
+
+/users/name:
+  get:
+    tags:
+      - users
+    summary: 사용자 이름
+    responses:
+      "200":
+        description: users name

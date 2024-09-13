@@ -1,0 +1,109 @@
+paths:
+  /statistics/visitor:
+    get:
+      tags:
+        - statistics
+      summary: 대시보드 - 방문자 수
+      responses:
+        "200":
+          description: users visit count
+
+  /statistics/visitor/device:
+    get:
+      tags:
+        - statistics
+      summary: 대시보드 - 방문 기기 통계
+      parameters:
+        - in: query
+          name: startDate
+          example: "2022-08-01"
+        - in: query
+          name: endDate
+          example: "2022-08-01"
+      responses:
+        "200":
+          description: users visit count
+
+  /statistics/product/category:
+    get:
+      tags:
+        - statistics
+      summary: 카테고리별 링크 이동 횟수/ 최다 이동 상품
+      parameters:
+        - in: query
+          name: startDate
+          example: "2022-08-01"
+        - in: query
+          name: endDate
+          example: "2022-08-01"
+      responses:
+        "200":
+          description: product link click count
+
+  /statistics/visitor/graph:
+    get:
+      tags:
+        - statistics
+      summary: 기간별 방문 통계
+      parameters:
+        - in: query
+          name: startDate
+          example: "2022-08-01"
+        - in: query
+          name: endDate
+          example: "2022-08-01"
+      responses:
+        "200":
+          description: user visit statistics
+
+  /statistics/users/cart:
+    get:
+      tags:
+        - statistics
+      summary: 기간별 사용자 담은 상품 리스트
+      parameters:
+        - in: query
+          name: startDate
+          example: "2022-08-01"
+        - in: query
+          name: endDate
+          example: "2022-08-01"
+        - in: query
+          name: categoryId
+          type: integer
+        - in: query
+          name: maxName
+          required: false
+          schema:
+            type: string
+            default: null
+            enum:
+              [
+                "Member",
+                "Sales",
+                "Diamond",
+                "Sharon Rose",
+                "Star",
+                "Royal",
+                "Crown",
+                "Imperial",
+              ]
+      responses:
+        "200":
+          description: user cart list statistics
+
+  /statistics/users/click/product:
+    get:
+      tags:
+        - statistics
+      summary: 기간별 상품 클릭 횟수
+      parameters:
+        - in: query
+          name: startDate
+          example: "2022-08-01"
+        - in: query
+          name: endDate
+          example: "2022-08-01"
+      responses:
+        "200":
+          description: user product click count statistics

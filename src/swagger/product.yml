@@ -1,0 +1,183 @@
+paths:
+  /products:
+    get:
+      tags:
+        - product
+      summary: 상품 목록
+      parameters:
+        - in: query
+          name: categoryId
+          type: integer
+        - in: query
+          name: name
+          type: string
+        - in: query
+          name: page
+          type: integer
+      responses:
+        "200":
+          description: product registration success
+
+    post:
+      tags:
+        - product
+      summary: 상품 등록
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                categoryId:
+                  type: integer
+                locationId:
+                  type: array
+                  items:
+                    type: integer
+                  example: [1, 2]
+                price:
+                  type: integer
+                point:
+                  type: integer
+                serial_number:
+                  type: string
+                  example: "000001"
+                salesPerson:
+                  type: string
+                  example: 판매원
+                name:
+                  type: string
+                object_id:
+                  type: string
+                company:
+                  type: string
+                  example: "OO 회사"
+                country:
+                  type: string
+                  example: "대한민국"
+                colors:
+                  type: array
+                  items:
+                    type: string
+                  example: ["hex_color1", "hex_color2"]
+                explanation:
+                  type: string
+                  example: "상품 설명"
+                connection_url:
+                  type: string
+                  example: "연결 링크"
+                outsource:
+                  type: string
+                fbx:
+                  type: string
+                images:
+                  type: array
+                  items:
+                    type: string
+                  example: ["lotation1", "lotation2"]
+                adReview:
+                  type: string
+      responses:
+        "200":
+          description: product registration success
+
+  /products/{id}:
+    get:
+      tags:
+        - product
+      summary: 상품 상세보기
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+      responses:
+        "200":
+          description: product lookup success
+
+    put:
+      tags:
+        - product
+      summary: 상품 수정
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                categoryId:
+                  type: integer
+                locationId:
+                  type: array
+                  items:
+                    type: integer
+                  example: [1, 2]
+                amount:
+                  type: integer
+                point:
+                  type: integer
+                serial_number:
+                  type: string
+                salesPerson:
+                  type: string
+                  example: 판매원
+                name:
+                  type: string
+                object_id:
+                  type: string
+                company:
+                  type: string
+                country:
+                  type: string
+                colors:
+                  type: array
+                  items:
+                    type: string
+                  example: ["color1", "color2"]
+                explanation:
+                  type: string
+                connection_url:
+                  type: string
+                outsource:
+                  type: string
+                fbx:
+                  type: string
+                images:
+                  type: array
+                  items:
+                    type: string
+                  example: ["lotation1", "lotation2"]
+                adReview:
+                  type: string
+      responses:
+        "200":
+          description: product update success
+
+  /products/{id}/is_show:
+    patch:
+      tags:
+        - product
+      summary: 상품 활성 / 비활성
+      produces:
+        - "application/json"
+      parameters:
+        - in: path
+          name: id
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                is_show:
+                  type: integer
+      responses:
+        "200":
+          description: product is_show patch success

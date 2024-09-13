@@ -1,0 +1,34 @@
+paths:
+  /logs/product:
+    post:
+      tags:
+        - product
+      summary: 링크 클릭
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                productId:
+                  type: integer
+      responses:
+        "200":
+          description: link click success
+
+/logs/click/product:
+  post:
+    tags:
+      - product
+    summary: 상품 클릭
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            properties:
+              productId:
+                type: integer
+    responses:
+      "200":
+        description: product click success
