@@ -50,15 +50,72 @@
  
 ```bash
 └─src
-    ├─api
+    │  app.ts
+    │  database.ts
+    │  index.ts
+    │
+    ├─apis
+    │      atomy.ts
+    │
     ├─controller
-    │  └─admin
+    │      admin.ts
+    │      cart.ts
+    │      category.ts
+    │      location.ts
+    │      logs.ts
+    │      product.ts
+    │      statistics.ts
+    │      upload.ts
+    │      user.ts
+    │
     ├─entity
+    │      admin.ts
+    │      cart.ts
+    │      category.ts
+    │      click_log_product.ts
+    │      index.ts
+    │      location.ts
+    │      log_product.ts
+    │      log_user.ts
+    │      product.ts
+    │      product_location.ts
+    │      user.ts
+    │
     ├─helper
+    │      auth.ts
+    │      s3Uploader.ts
+    │      user.ts
+    │
     ├─router
-    │  └─admin
+    │      admin.ts
+    │      cart.ts
+    │      category.ts
+    │      index.ts
+    │      location.ts
+    │      logs.ts
+    │      product.ts
+    │      statistics.ts
+    │      upload.ts
+    │      upload_fbx.ts
+    │      user.ts
+    │
     ├─service
+    │      cart.ts
+    │      log.ts
+    │      statistics.ts
+    │      user.ts
+    │
     └─swagger
+            admin.yml
+            cart.yml
+            category.yml
+            index.ts
+            location.yml
+            log.yml
+            product.yml
+            statistics.yml
+            upload.yml
+            user.yml
 ```
 </div>
 </details>
